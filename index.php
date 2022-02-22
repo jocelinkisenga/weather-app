@@ -9,7 +9,7 @@ include_once("Control/control.php");
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>Compass Starter by Ariona, Rian</title>
+		<title><?= APP_NAME ?></title>
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -74,9 +74,9 @@ include_once("Control/control.php");
 								<div class="date">6 Oct</div>
 							</div> <!-- .forecast-header -->
 							<div class="forecast-content">
-								<div class="location">New York</div>
+								<div class="location"><?= $cityname ?></div>
 								<div class="degree">
-									<div class="num">23<sup>o</sup>C</div>
+									<div class="num"><?= $temperature ?><sup>o</sup>C</div>
 									<div class="forecast-icon">
 										<img src="images/icons/icon-1.svg" alt="" width=90>
 									</div>	
@@ -170,7 +170,7 @@ include_once("Control/control.php");
 								<div class="news">
 									<div class="date">06.10</div>
 									<h3><a href="#">Doloremque laudantium totam sequi </a></h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo saepe assumenda dolorem modi, expedita voluptatum ducimus necessitatibus. Asperiores quod reprehenderit necessitatibus harum, mollitia, odit et consequatur maxime nisi amet doloremque.</p>
+									<p><?= $description ?></p>
 								</div>
 							</div>
 							<div class="col-md-4">

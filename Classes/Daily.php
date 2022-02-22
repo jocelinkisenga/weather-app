@@ -1,8 +1,6 @@
 <?php
-Class APIs{
-  protected $owapi = "YOUR_API_KEY";
-}
-Class Currentweather Extends APIs{
+
+Class DailyWeather {
   private $jsonfile;
   private $jsondata;
   private $temp;
@@ -20,17 +18,23 @@ Class Currentweather Extends APIs{
   private $sunrise;
   private $sunset;
   private $cloudsall;
+  private $keyApi;
+  
+public function __construct($key){
+    $this->keyApi = $key;
+  }
   
   private function jsondata($url) {
     $this->jsonfile = file_get_contents($url);
     $this->jsondata = json_decode($this->jsonfile);
+    
     return $this->jsondata;
   }
   
   
   //location for current weather
-  public function locationbycity($city, $country) {
-    $currenturl = "http://api.openweathermap.org/data/2.5/weather?q=". str_replace(' ', '%20', $city) .",". str_replace(' ', '%20', $country) ."&units=metric&appid=". $this->owapi ."";
+  public function locationbycity($city) {
+    $currenturl = "http://api.openweathermap.org/data/2.5/weather?q=". str_replace(' ', '%20', $city) ."&units=metric&appid=". $this->keyApi."";
       return $currenturl;
   }
   
@@ -100,4 +104,4 @@ Class Currentweather Extends APIs{
     return $this->cloudsall;
   }
 }
-?
+?>
