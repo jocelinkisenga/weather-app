@@ -12,10 +12,12 @@ include_once "autoloader.php";
    }
  }
  */
- 
+ include_once("autoloader.php");
+ If (isset($_GET["chercher"])){
 
-if(isset($_GET['city']))
+if(!empty($_GET['city']))
 {
+  
   
 $getcity = $_GET['city'];
 $location = "'". $getcity ."'";
@@ -38,3 +40,4 @@ $cloudsall = $data->cloudsall($data->locationbycity($getcity));
 else {
   header('location:404.php');
 }
+} 

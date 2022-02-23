@@ -14,20 +14,158 @@ include_once("Control/control.php");
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
 		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+            <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+                                
+                                <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 		<!-- Loading main css file -->
-		<link rel="stylesheet" href="style.css">
+		
 		
 		<!--[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
+		
+		
+		   <style>
+		/*   body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(238, 237, 237, 0.438);
+    color: rgb(105, 104, 104);
+    font-family: sans-serif
+}*/
 
+.container {
+    width: fit-content
+}
+
+.card {
+    padding: 1.2rem 3rem 1rem 3rem;
+    margin: 1rem;
+    border-radius: 1.5rem;
+    border-color: rgba(238, 237, 237, 0.438);
+    box-shadow: 5px 8px 10px #80808033
+}
+
+@media(max-width:767px) {
+    .card {
+        height: 10rem;
+        padding: 1.5rem 1.5rem 1rem 1.5rem
+    }
+}
+
+.carousel-indicators li {
+    width: 5px;
+    height: 6px;
+    border-radius: 100%;
+    opacity: 0.2;
+    background-color: #000000
+}
+
+.carousel-indicators {
+    margin-bottom: 0
+}
+
+.temp {
+    font-size: 3rem;
+    color: rgb(57, 57, 58)
+}
+
+.card-1 {
+    background: linear-gradient(to right, #ffffff 50%, rgba(241, 224, 190, 0.507))
+}
+
+@media(max-width:767px) {
+    .temp {
+        font-size: 2rem
+    }
+}
+
+.location {
+    margin-bottom: 1.2rem
+}
+
+@media(max-width:767px) {
+    .location {
+        font-size: 0.75rem
+    }
+}
+
+.img-fluid {
+    float: right;
+    width: 65%;
+    display: flex;
+    align-items: center
+}
+
+.row2 .img-fluid {
+    margin: 10% 0;
+    opacity: 0.5;
+    width: 40%
+}
+
+.card-2 .row {
+    justify-content: center
+}
+
+.card-3 .row {
+    justify-content: center
+}
+
+.row1 {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: black
+}
+
+.row3 {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: black
+}
+
+@media(max-width:400px) {
+    .row3 {
+        font-size: 0.7rem;
+        font-weight: bold;
+        color: black
+    }
+}
+
+@media(max-width:320px) {
+    .row3 {
+        font-size: 0.6rem;
+        font-weight: bold;
+        color: black
+    }
+}
+
+.row4 {
+    font-size: 0.6rem;
+    color: rgb(196, 196, 196);
+    margin: 5% 0 2.5rem
+}
+
+.card-3 .row3 {
+    margin: 5% 0 2.5rem
+}
+
+.col {
+    overflow: visible
+}
+
+.row {
+    overflow: visible
+}
+</style>
 	</head>
 
 
-	<body>
-		
+	<body oncontextmenu='return false' class='snippet-body'>
+
+
 		<div class="site-content">
 			<div class="site-header">
 				<div class="container">
@@ -35,11 +173,11 @@ include_once("Control/control.php");
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-type">
 							<h1 class="site-title">Lushidev weather</h1>
-							<small class="site-description">tagline goes here</small>
+							<small class="site-description"></small>
 						</div>
 					</a>
 
-					<!-- Default snippet for navigation -->
+					<!-- Default snippet for navigation --
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
@@ -48,220 +186,156 @@ include_once("Control/control.php");
 							<li class="menu-item"><a href="live-cameras.html">Live cameras</a></li>
 							<li class="menu-item"><a href="photos.html">Photos</a></li>
 							<li class="menu-item"><a href="contact.html">Contact</a></li>
-						</ul> <!-- .menu -->
-					</div> <!-- .main-navigation -->
+						</ul> <!-- .menu --
+					</div> -- .main-navigation --
 
 					<div class="mobile-navigation"></div>
 
 				</div>
 			</div> <!-- .site-header -->
 
-			<div class="hero" data-bg-image="images/banner.png">
+			<div class="hero">
 				<div class="container">
 					<form action="" class="find-location" method="GET">
-						<input type="text" name="city" placeholder="chercher votre ville...">
-						<input type="submit" value="chercher" name="chercher">
+						<input type="text" name="city" placeholder="chercher votre ville..." class="form-control">
+						<input type="submit" value="chercher" name="chercher" class="btn btn-primary ">
 					</form>
 
 				</div>
 			</div>
-			<div class="forecast-table">
-				<div class="container">
-					<div class="forecast-container">
-						<div class="today forecast">
-							<div class="forecast-header">
-								<div class="day">Monday</div>
-								<div class="date">6 Oct</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="location"><?= $cityname ?></div>
-								<div class="degree">
-									<div class="num"><?= $temperature ?><sup>o</sup>C</div>
-									<div class="forecast-icon">
-										<img src="images/icons/icon-1.svg" alt="" width=90>
-									</div>	
-								</div>
-								<span><img src="images/icon-umberella.png" alt="">20%</span>
-								<span><img src="images/icon-wind.png" alt="">18km/h</span>
-								<span><img src="images/icon-compass.png" alt="">East</span>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">Tuesday</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-3.svg" alt="" width=48>
-								</div>
-								<div class="degree">23<sup>o</sup>C</div>
-								<small>18<sup>o</sup></small>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">Wednesday</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-5.svg" alt="" width=48>
-								</div>
-								<div class="degree">23<sup>o</sup>C</div>
-								<small>18<sup>o</sup></small>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">Thursday</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-7.svg" alt="" width=48>
-								</div>
-								<div class="degree">23<sup>o</sup>C</div>
-								<small>18<sup>o</sup></small>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">Friday</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-12.svg" alt="" width=48>
-								</div>
-								<div class="degree">23<sup>o</sup>C</div>
-								<small>18<sup>o</sup></small>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">Saturday</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-13.svg" alt="" width=48>
-								</div>
-								<div class="degree">23<sup>o</sup>C</div>
-								<small>18<sup>o</sup></small>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">Sunday</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-14.svg" alt="" width=48>
-								</div>
-								<div class="degree">23<sup>o</sup>C</div>
-								<small>18<sup>o</sup></small>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<main class="main-content">
-				
-				<div class="fullwidth-block" data-bg-color="#262936">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-4">
-								<div class="news">
-									<div class="date">06.10</div>
-									<h3><a href="#">Doloremque laudantium totam sequi </a></h3>
-									<p><?= $description ?></p>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="news">
-									<div class="date">06.10</div>
-									<h3><a href="#">Doloremque laudantium totam sequi </a></h3>
-									<p>Nobis architecto consequatur ab, ea, eum autem aperiam accusantium placeat vitae facere explicabo temporibus minus distinctio cum optio quis, dignissimos eius aspernatur fuga. Praesentium totam, corrupti beatae amet expedita veritatis.</p>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="news">
-									<div class="date">06.10</div>
-									<h3><a href="#">Doloremque laudantium totam sequi </a></h3>
-									<p>Enim impedit officiis placeat qui recusandae doloremque possimus, iusto blanditiis, quam optio delectus maiores. Possimus rerum, velit cum natus eos. Cumque pariatur beatae asperiores, esse libero quas ad dolorem. Voluptates.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			
+		    <?php if(!empty($temperature)){?>
+		
+   <div class="container">
+    <div class="card card-1">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul> <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="temp"><?= $temperature ?>&deg;</div>
+                            <div class="location"><?= $cityname ?></div>
+                        </div>
+                        <div class="col-6 justify-content-right"> <img class="img-fluid" src="https://img.icons8.com/plasticine/100/000000/sun.png"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+<!--
+    <div class="card card-2">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <!-- Indicators --
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0"></li>
+                <li data-target="#demo" data-slide-to="1" class="active"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul> <!-- The slideshow --
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                  
+                    <div class="row">
+                        <div class="col">
+                            <div class="row row1">
+                            &deg;</div>
+                            <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
+                            <div class="row row3">12:00</div>
+                            <div class="row row4">PM</div>
+                        </div>
+                        <div class="col">
+                            <div class="row row1">20&deg;</div>
+                            <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
+                            <div class="row row3">1:00</div>
+                            <div class="row row4">PM</div>
+                        </div>
+                        <div class="col">
+                            <div class="row row1">20&deg;</div>
+                            <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
+                            <div class="row row3">2:00</div>
+                            <div class="row row4">PM</div>
+                        </div>
+                        <div class="col">
+                            <div class="row row1">19&deg;</div>
+                            <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
+                            <div class="row row3">3:00</div>
+                            <div class="row row4">PM</div>
+                        </div>
+                        <div class="col">
+                            <div class="row row1">18&deg;</div>
+                            <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/cotton/64/000000/rain--v3.png" /></div>
+                            <div class="row row3">4:00</div>
+                            <div class="row row4">PM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card card-3">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <!-- Indicators --
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2" class="active"></li>
+            </ul> <!-- The slideshow --
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row row1">21&deg;</div>
+                            <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
+                            <div class="row row3">Mon</div>
+                        </div>
+                        <div class="col">
+                            <div class="row row1">20&deg;</div>
+                            <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
+                            <div class="row row3">Tue</div>
+                        </div>
+                        <div class="col">
+                            <div class="row row1">16&deg;</div>
+                            <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
+                            <div class="row row3">Wed</div>
+                        </div>
+                        <div class="col">
+                            <div class="row row1">17&deg;</div>
+                            <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
+                            <div class="row row3">Thu</div>
+                        </div>
+                        <div class="col">
+                            <div class="row row1">18&deg;</div>
+                            <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/cotton/64/000000/rain--v3.png" /></div>
+                            <div class="row row3">Fri</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
 
-				<div class="fullwidth-block">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-4">
-								<h2 class="section-title">Application features</h2>
-								<ul class="arrow-feature">
-									<li>
-										<h3>Natus error sit voluptatem accusantium</h3>
-										<p>Doloremque laudantium totam rem aperiam Inventore veritatis et quasi architecto beatae vitae.</p>
-									</li>
-									<li>
-										<h3>Natus error sit voluptatem accusantium</h3>
-										<p>Doloremque laudantium totam rem aperiam Inventore veritatis et quasi architecto beatae vitae.</p>
-									</li>
-									<li>
-										<h3>Natus error sit voluptatem accusantium</h3>
-										<p>Doloremque laudantium totam rem aperiam Inventore veritatis et quasi architecto beatae vitae.</p>
-									</li>
-								</ul>
-							</div>
-							<div class="col-md-4">
-								<h2 class="section-title">Weather analyssis</h2>
-								<ul class="arrow-list">
-									<li><a href="#">Accusantium doloremque laudantium rem aperiam</a></li>
-									<li><a href="#">Eaque ipsa quae ab illo inventore veritatis quasi</a></li>
-									<li><a href="#">Architecto beatae vitae dicta sunt explicabo</a></li>
-									<li><a href="#">Nemo enim ipsam voluptatem quia voluptas</a></li>
-									<li><a href="#">Aspernatur aut odit aut fugit, sed quia consequuntur</a></li>
-									<li><a href="#">Magni dolores eos qui ratione voluptatem sequi</a></li>
-									<li><a href="#">Neque porro quisquam est qui dolorem ipsum quia</a></li>
-								</ul>
-							</div>
-							<div class="col-md-4">
-								<h2 class="section-title">Awesome Photos</h2>
-								<div class="photo-grid">
-									<a href="#"><img src="images/thumb-1.jpg" alt="#"></a>
-									<a href="#"><img src="images/thumb-2.jpg" alt="#"></a>
-									<a href="#"><img src="images/thumb-3.jpg" alt="#"></a>
-									<a href="#"><img src="images/thumb-4.jpg" alt="#"></a>
-									<a href="#"><img src="images/thumb-5.jpg" alt="#"></a>
-									<a href="#"><img src="images/thumb-6.jpg" alt="#"></a>
-									<a href="#"><img src="images/thumb-7.jpg" alt="#"></a>
-									<a href="#"><img src="images/thumb-8.jpg" alt="#"></a>
-									<a href="#"><img src="images/thumb-9.jpg" alt="#"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</main> <!-- .main-content -->
+<?php } ?>
+                           
+		
+		
+		<!-- .main-content -->
 
 			<footer class="site-footer">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8">
-							<form action="#" class="subscribe-form">
-								<input type="text" placeholder="Enter your email to subscribe...">
-								<input type="submit" value="Subscribe">
-							</form>
-						</div>
+						
 						<div class="col-md-3 col-md-offset-1">
-							<div class="social-links">
-								<a href="#"><i class="fa fa-facebook"></i></a>
-								<a href="#"><i class="fa fa-twitter"></i></a>
-								<a href="#"><i class="fa fa-google-plus"></i></a>
-								<a href="#"><i class="fa fa-pinterest"></i></a>
-							</div>
+
 						</div>
 					</div>
 
-					<p class="colophon">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
+					<p class="colophon" style="display:bottom;"></p>
 				</div>
 			</footer> <!-- .site-footer -->
 		</div>
@@ -269,7 +343,10 @@ include_once("Control/control.php");
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
-		
+		     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+                                <script type='text/javascript' src=''></script>
+                                <script type='text/javascript' src=''></script>
+                                <script type='text/Javascript'></script>
 	</body>
 
 </html>
