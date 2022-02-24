@@ -35,6 +35,9 @@ $visibility = $data->visibility($data->locationbycity($getcity));
 $sunrise = $data->sunrise($data->locationbycity($getcity));
 $sunset = $data->sunset($data->locationbycity($getcity));
 $cloudsall = $data->cloudsall($data->locationbycity($getcity));
+if (empty($temperature)) {
+header('location:404.php');
+}
 
 }
 else {
